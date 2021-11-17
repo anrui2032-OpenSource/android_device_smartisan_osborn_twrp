@@ -8,7 +8,7 @@
 /system			ext4	/dev/block/bootdevice/by-name/system
 /system_image		emmc	/dev/block/bootdevice/by-name/system
 /cache			ext4	/dev/block/bootdevice/by-name/cache
-/data			f2fs	/dev/block/bootdevice/by-name/userdata							flags=display="Data"
+/data			f2fs	/dev/block/logic_data									flags=encryptable=footer;length=-16384
 /persist		ext4	/dev/block/bootdevice/by-name/persist							flags=display="Persist"
 /persist_image		emmc	/dev/block/bootdevice/by-name/persist
 /misc			emmc	/dev/block/bootdevice/by-name/misc
