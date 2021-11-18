@@ -30,3 +30,7 @@ PRODUCT_DEVICE := osborn
 PRODUCT_BRAND := SMARTISAN
 PRODUCT_MODEL := OS105
 PRODUCT_MANUFACTURER := smartisan
+
+# Sign bootable images
+PRODUCT_SUPPORTS_BOOT_SIGNER := true
+PRODUCT_VERITY_SIGNING_KEY := build/target/product/security/verity
