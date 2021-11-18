@@ -1,0 +1,28 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+# mount point   fstype  device									device2				flags
+/boot			emmc	/dev/block/bootdevice/by-name/boot							flags=display="Boot";backup=1
+/recovery		emmc	/dev/block/bootdevice/by-name/recovery							flags=display="Recovery";backup=1
+/system			ext4	/dev/block/bootdevice/by-name/system
+/system_image		emmc	/dev/block/bootdevice/by-name/system
+/cache			ext4	/dev/block/bootdevice/by-name/cache
+/data			f2fs	/dev/block/bootdevice/by-name/userdata							flags=display="Data"
+/persist		ext4	/dev/block/bootdevice/by-name/persist							flags=display="Persist"
+/persist_image		emmc	/dev/block/bootdevice/by-name/persist
+/misc			emmc	/dev/block/bootdevice/by-name/misc
+/factory		emmc	/dev/block/bootdevice/by-name/factory							flags=display="NV";backup=1
+/devinfo		emmc	/dev/block/bootdevice/by-name/devinfo							flags=subpartitionof=/factory;backup=1
+/sec			emmc	/dev/block/bootdevice/by-name/sec							flags=subpartitionof=/factory;backup=1
+/modemst1		emmc	/dev/block/bootdevice/by-name/modemst1							flags=subpartitionof=/factory;backup=1
+/modemst2		emmc	/dev/block/bootdevice/by-name/modemst2							flags=subpartitionof=/factory;backup=1
+/fsc			emmc	/dev/block/bootdevice/by-name/fsc							flags=subpartitionof=/factory;backup=1
+/fsg			emmc	/dev/block/bootdevice/by-name/fsg							flags=subpartitionof=/factory;backup=1
+/fsg1			emmc	/dev/block/bootdevice/by-name/fsg1							flags=subpartitionof=/factory;backup=1
+/fsg2x			emmc	/dev/block/bootdevice/by-name/fsg2x							flags=subpartitionof=/factory;backup=1
+/xbl			emmc	/dev/block/bootdevice/by-name/xbl							flags=display="Bootloader";backup=1
+/abl			emmc	/dev/block/bootdevice/by-name/abl							flags=subpartitionof=/xbl;backup=1
+
+# Removable storage
+/usb_otg		vfat	/dev/block/sdd1							/dev/block/sdd		flags=display="USB-OTG";storage;wipeingui;removable
